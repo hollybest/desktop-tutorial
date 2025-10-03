@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinimalWeb — Создаём быстрые сайты</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">MinimalWeb</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-gray-700 hover:text-purple-600 transition">Услуги</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-purple-600 transition">Портфолио</a>
+                    <a href="#process" class="text-gray-700 hover:text-purple-600 transition">Процесс</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition">Цены</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition">Контакты</a>
+                </div>
+                <button class="md:hidden text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 hero-gradient text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl animate-fade-in">
+                <p class="text-sm uppercase tracking-wider mb-4 opacity-90">Веб-разработка без суеты</p>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Делаем сайты, которые<br>выглядят просто и<br>работают быстро
+                </h1>
+                <p class="text-xl mb-8 opacity-90 max-w-2xl">
+                    Лендинги, сайты для бизнеса и магазины. Частый минимализм, акцент на конверсию, 
+                    загрузка до 1 секунды на 4G.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Оставить заявку
+                    </a>
+                    <a href="#portfolio" class="border-2 border-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition">
+                        Смотреть работы
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                    <div>
+                        <div class="text-3xl font-bold">10-14 дней</div>
+                        <div class="text-sm opacity-80">запуск типового лендинга</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold">90+</div>
+                        <div class="text-sm opacity-80">Google PageSpeed (моб.)</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold">SEO-готово</div>
+                        <div class="text-sm opacity-80">с первых релизов</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold">Под ключ</div>
+                        <div class="text-sm opacity-80">дизайн → код → запуск</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Что делаем</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+                Ровные сетки, простор, ясная типографика. Никакой визуальной суеты.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Лендинги -->
+                <div class="bg-gray-50 p-8 rounded-xl card-hover">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Лендинги</h3>
+                    <p class="text-gray-600 mb-4">
+                        Минимум отвлечений, максимум смысла. Фокус на оффер и конверсию.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>✓ 1-3 экрана</li>
+                        <li>✓ Форма заявки</li>
+                        <li>✓ Адаптив под все устройства</li>
+                        <li>✓ Срок: 7-10 дней</li>
+                    </ul>
+                </div>
+
+                <!-- Сайты для бизнеса -->
+                <div class="bg-gray-50 p-8 rounded-xl card-hover">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Сайты для бизнеса</h3>
+                    <p class="text-gray-600 mb-4">
+                        Страницы услуг, кейсы, блог, контакты. Лёгкая структура и SEO-основа.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>✓ Главная + 3-5 внутренних</li>
+                        <li>✓ Блог/кейсы</li>
+                        <li>✓ Аналитика</li>
+                        <li>✓ Срок: 10-14 дней</li>
+                    </ul>
+                </div>
+
+                <!-- Интернет-магазины -->
+                <div class="bg-gray-50 p-8 rounded-xl card-hover">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Интернет-магазины</h3>
+                    <p class="text-gray-600 mb-4">
+                        Каталог, фильтры, корзина, оплата. Быстрый UX и понятная навигация.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li>✓ Каталог, фильтры, корзина</li>
+                        <li>✓ Оплата/доставка</li>
+                        <li>✓ SEO-структура</li>
+                        <li>✓ Срок: 14-21 день</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Работы</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+                Снимки макетов и живых проектов. Подчёркнутые отступы, аккуратные сетки.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-64 bg-gradient-to-br from-purple-400 to-pink-400"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Fintech Startup</h3>
+                        <p class="text-gray-600 mb-4">Лендинг для финансового приложения</p>
+                        <span class="text-sm text-purple-600 font-semibold">Лендинг</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-64 bg-gradient-to-br from-blue-400 to-cyan-400"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Design Agency</h3>
+                        <p class="text-gray-600 mb-4">Портфолио дизайн-студии</p>
+                        <span class="text-sm text-purple-600 font-semibold">Многостраничный</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-64 bg-gradient-to-br from-orange-400 to-red-400"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Store</h3>
+                        <p class="text-gray-600 mb-4">Интернет-магазин одежды</p>
+                        <span class="text-sm text-purple-600 font-semibold">Магазин</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Процесс</h2>
+            
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="flex gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Бриф</h3>
+                        <p class="text-gray-600">Цели, структура, контент. 30-45 минут.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Дизайн</h3>
+                        <p class="text-gray-600">Первый макет в Figma + правки.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Разработка</h3>
+                        <p class="text-gray-600">Чистый HTML/CSS/JS. Оптимизация скорости.</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <div class="flex-shrink-0 w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Запуск</h3>
+                        <p class="text-gray-600">Хостинг, домен, аналитика, SEO-база.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4">Цены</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+                Прозрачно и без скрытых платежей. Фиксированный объём и сроки.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Лендинг -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <h3 class="text-2xl font-bold mb-4">Лендинг</h3>
+                    <div class="text-4xl font-bold mb-6 gradient-text">$350+</div>
+                    <ul class="space-y-3 mb-8 text-gray-600">
+                        <li>✓ 1-3 экрана, форма заявки</li>
+                        <li>✓ Адаптив, базовое SEO</li>
+                        <li>✓ Срок: 7-10 дней</li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-purple-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+                        Заказать
+                    </a>
+                </div>
+
+                <!-- Сайт для бизнеса -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover border-2 border-purple-600 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Популярный
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Сайт для бизнеса</h3>
+                    <div class="text-4xl font-bold mb-6 gradient-text">$650+</div>
+                    <ul class="space-y-3 mb-8 text-gray-600">
+                        <li>✓ Главная + 3-5 внутренних</li>
+                        <li>✓ Блог/кейсы, аналитика</li>
+                        <li>✓ Срок: 10-14 дней</li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-purple-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+                        Заказать
+                    </a>
+                </div>
+
+                <!-- Интернет-магазин -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <h3 class="text-2xl font-bold mb-4">Интернет-магазин</h3>
+                    <div class="text-4xl font-bold mb-6 gradient-text">$1100+</div>
+                    <ul class="space-y-3 mb-8 text-gray-600">
+                        <li>✓ Каталог, фильтры, корзина</li>
+                        <li>✓ Оплата/доставка, SEO-структура</li>
+                        <li>✓ Срок: 14-21 день</li>
+                    </ul>
+                    <a href="#contact" class="block w-full bg-purple-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+                        Заказать
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4">Начнём проект</h2>
+                <p class="text-center text-gray-600 mb-12">
+                    Опишите задачу — вернусь с предложением по срокам и стоимости.
+                </p>
+                
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Ваше имя</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Иван Иванов">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Телефон или WhatsApp</label>
+                        <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="+7 (900) 123-45-67">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Коротко о проекте</label>
+                        <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Нужен лендинг для..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-purple-600 text-white py-4 rounded-lg font-semibold hover:bg-purple-700 transition">
+                        Отправить заявку
+                    </button>
+                    
+                    <p class="text-center text-sm text-gray-500">
+                        Или напишите в 
+                        <a href="#" class="text-purple-600 hover:underline">WhatsApp</a> / 
+                        <a href="#" class="text-purple-600 hover:underline">Telegram</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold mb-4">MinimalWeb</div>
+                    <p class="text-gray-400 text-sm">Веб-студия простых и быстрых сайтов</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Услуги</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Лендинги</a></li>
+                        <li><a href="#" class="hover:text-white transition">Сайты для бизнеса</a></li>
+                        <li><a href="#" class="hover:text-white transition">Интернет-магазины</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Компания</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white transition">О нас</a></li>
+                        <li><a href="#" class="hover:text-white transition">Портфолио</a></li>
+                        <li><a href="#" class="hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Контакты</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>hello@minimalweb.com</li>
+                        <li>+34 600 123 456</li>
+                        <li>Madrid, España</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2025 MinimalWeb — веб-студия</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Простая анимация появления при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
