@@ -152,7 +152,7 @@ function Add-Finding {
         LineNum     = $LineNum
         Severity    = $Severity
         Description = $Description
-        MatchedText = if ($MatchedText.Length -gt 200) { $MatchedText.Substring(0,200) } else { $MatchedText }
+        MatchedText = $(if ($MatchedText.Length -gt 200) { $MatchedText.Substring(0,200) } else { $MatchedText })
     })
     switch ($Severity) {
         'CRITICAL' { $script:Stats.Critical++ }
@@ -366,9 +366,9 @@ function Show-Results {
     $high = $script:Stats.High
     $med  = $script:Stats.Medium
 
-    $critColor = if ($crit -gt 0) { 'Red' } else { 'Green' }
-    $highColor = if ($high -gt 0) { 'Red' } else { 'Green' }
-    $medColor  = if ($med -gt 0) { 'Yellow' } else { 'Green' }
+    $critColor = $(if ($crit -gt 0) { 'Red' } else { 'Green' })
+    $highColor = $(if ($high -gt 0) { 'Red' } else { 'Green' })
+    $medColor  = $(if ($med -gt 0) { 'Yellow' } else { 'Green' })
 
     Write-Color "  CRITICAL: $crit" $critColor
     Write-Color "  HIGH:     $high" $highColor
@@ -417,17 +417,17 @@ function Show-Results {
                 default    { 'White' }
             }
 
-            $lineInfo = if ($finding.LineNum -gt 0) { " (строка $($finding.LineNum))" } else { "" }
+            $lineInfo = $(if ($finding.LineNum -gt 0) { " (строка $($finding.LineNum))" } else { "" })
             Write-Host "    " -NoNewline
             Write-Host "$($finding.Severity)" -ForegroundColor $sevColor -NoNewline
             Write-Host "${lineInfo}: $($finding.Description)"
 
             if ($finding.MatchedText) {
-                $snippet = if ($finding.MatchedText.Length -gt 150) {
+                $snippet = $(if ($finding.MatchedText.Length -gt 150) {
                     $finding.MatchedText.Substring(0,150) + "..."
                 } else {
                     $finding.MatchedText
-                }
+                })
                 Write-Host "      > $snippet" -ForegroundColor DarkGray
             }
         }
@@ -479,10 +479,10 @@ function Save-Report {
                     $key = "$($finding.Description)|$($finding.LineNum)"
                     if ($seen.ContainsKey($key)) { continue }
                     $seen[$key] = $true
-                    $lineInfo = if ($finding.LineNum -gt 0) { " (строка $($finding.LineNum))" } else { "" }
+                    $lineInfo = $(if ($finding.LineNum -gt 0) { " (строка $($finding.LineNum))" } else { "" })
                     $null = $sb.AppendLine("  [$($finding.Severity)]${lineInfo}: $($finding.Description)")
                     if ($finding.MatchedText) {
-                        $text = if ($finding.MatchedText.Length -gt 200) { $finding.MatchedText.Substring(0,200) } else { $finding.MatchedText }
+                        $text = $(if ($finding.MatchedText.Length -gt 200) { $finding.MatchedText.Substring(0,200) } else { $finding.MatchedText })
                         $null = $sb.AppendLine("    > $text")
                     }
                 }
